@@ -22,7 +22,11 @@ function CalBMI(Weight, Height) {
     else if (Weight <= 0 || Height <= 0) 
         return {error : "Please fill in your weight and height information correctly. (Value must be greater than 0)"};
 
-    const BmiResult = (Weight / ((Height / 100) ** 2)).toFixed(2);
+    let HeightInMeters
+    if (Height < 100) HeightInMeters = Height;
+    else if (Height >= 100) HeightInMeters = Height / 100;
+
+    const BmiResult = (Weight / (HeightInMeters ** 2)).toFixed(2);
 
     return {
         bmi: BmiResult,
