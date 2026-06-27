@@ -6,9 +6,6 @@ async function BmiCal() {
     
     const response = await fetch(`${ApiPort}/BmiCal?weight=${weight}&height=${height}`)
         .then(res => res.json())
-        .catch(err => {
-            return {error : err};
-        })
 
     if (!response.error) {
         const bmi_result = document.getElementById("bmi-result");
