@@ -36,10 +36,10 @@ function CalBMI(Weight, Height) {
 }
 
 app.get('/BmiCal', (req, res) => {
-    let weight = req.query.weight;
-    let height = req.query.height;
+    const weight = req.query.weight;
+    const height = req.query.height;
 
-    let Result = CalBMI(weight, height);
+    const Result = CalBMI(weight, height);
 
     if (Result.error) {
         return res.status(404).json({
