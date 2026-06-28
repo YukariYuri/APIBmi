@@ -15,18 +15,19 @@ function BMILevel(BMI) {
 }
 
 function CalBMI(Weight, Height) {
-    if (!Weight || !Height) 
-        return {error : "Please specify your weight and height."};
-    else if (isNaN(Number(Weight)) || isNaN(Number(Height))) 
+    const wN = Number(Weight);
+    const hN = Number(Height);
+
+    if (isNaN(wN) || isNaN(hN)) 
         return {error : "Please fill in your weight and height in numbers only."};
-    else if (Weight <= 0 || Height <= 0) 
+    else if (wN <= 0 || hN <= 0) 
         return {error : "Please fill in your weight and height information correctly. (Value must be greater than 0)"};
 
     let HeightInMeters
-    if (Height < 100) HeightInMeters = Height;
-    else if (Height >= 100) HeightInMeters = Height / 100;
+    if (hN < 100) HeightInMeters = hN;
+    else if (hN >= 100) HeightInMeters = hN / 100;
 
-    const BmiResult = (Weight / (HeightInMeters ** 2)).toFixed(2);
+    const BmiResult = (wN / (HeightInMeters ** 2)).toFixed(2);
 
     return {
         bmi: BmiResult,
