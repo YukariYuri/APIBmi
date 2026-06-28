@@ -13,7 +13,7 @@ async function BmiCal() {
         return alert("Please fill in your weight and height information correctly. (Value must be greater than 0)");
 
     const response = await fetch(`${ApiPort}/BmiCal?weight=${wN}&height=${hN}`)
-        .then(res => res.json()).catch
+        .then(res => res.json())
 
     if (!response.error) {
         const bmi_result = document.getElementById("bmi-result");
